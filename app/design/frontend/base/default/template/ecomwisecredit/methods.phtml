@@ -1,0 +1,48 @@
+<?php
+/**
+ *
+ * @see Ecomwise_Creditlimit_Block_Methods
+ */
+?>
+<?php
+    $methods = $this->getMethods();
+    $oneMethod = count($methods) <= 1;
+?>
+<?php if( count($methods) == 0 ){ ?>
+	<dt><?php echo  Mage::getStoreConfig('payment/pay_on_account/message'); ?></dt>
+<?php } ?>
+<?php if(Mage::getStoreConfig('creditlimit/parameters_creditlimit/use_limit')){?>
+	<?php 
+	$credit_limit = Mage::helper('ecomwisecredit')->getCreditLimit();
+	$creditlimit_method = Mage::getStoreConfig('creditlimit/parameters_creditlimit/payment_method');
+	$amountInCart = Mage::helper('checkout/cart')->getQuote()->getGrandTotal();
+	$total = Mage::helper('ecomwisecredit')->getTotalOfOrders() + $amountInCart;		
+	?>
+	<?php if( $total > $credit_limit ){ ?>
+	<input type="hidden" id=messageSet value="<?php echo Mage::getStoreConfig('creditlimit/parameters_creditlimit/messageSet'); ?>"/>
+	<input type="hidden" id="message" value="<?php echo Mage::getStoreConfig('creditlimit/parameters_creditlimit/message'); ?>"/>
+	<script type="text/javascript">
+	if(jQuery('.no-display #p_method_' + '<?php echo $creditlimit_method ?>').length){
+		jQuery("#p_method_" + "<?php echo $creditlimit_method ?>").attr("disabled", "disabled");	
+		jQuery("#p_method_" + "<?php echo $creditlimit_method ?>").attr("name", "disabled");
+		if(<?php echo $credit_limit ?> == 0) { 
+			jQuery("label[for='p_method_" + "<?php echo $creditlimit_method ?>']").append('<span style="font-weight:normal"> - ' + jQuery("#messageSet").val() + '</span>');
+		 } 
+		 else { 
+			jQuery("label[for='p_method_" + "<?php echo $creditlimit_method ?>']").append('<span style="font-weight:normal"> - ' + jQuery("#message").val() + '</span>');
+		}
+	}else{
+		jQuery("#p_method_" + "<?php echo $creditlimit_method ?>").attr("disabled", "disabled");			
+		if(<?php echo $credit_limit ?> == 0) { 		
+			jQuery("label[for='p_method_" + "<?php echo $creditlimit_method ?>']").append('<span style="font-weight:normal"> - ' + jQuery("#messageSet").val() + '</span>');
+ 		} 
+ 		else { 
+ 	 		jQuery("label[for='p_method_" + "<?php echo $creditlimit_method ?>']").append('<span style="font-weight:normal"> - ' + jQuery("#message").val() + '</span>');
+		}
+	}
+	if(jQuery('#payment_form_pay_on_account').length){
+		jQuery("#payment_form_pay_on_account").remove();
+	}
+	</script>
+	<?php } ?> 
+<?php } ?>

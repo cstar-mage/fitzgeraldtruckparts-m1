@@ -1,0 +1,13 @@
+/.idea
+/media
+/var
+/app/etc/local.xml
+/errors/local.xml
+.htaccess
+adminer.php
+newadmin.php
+*.tar
+downloader/
+/static
+/tmp
+/sitemap.xml

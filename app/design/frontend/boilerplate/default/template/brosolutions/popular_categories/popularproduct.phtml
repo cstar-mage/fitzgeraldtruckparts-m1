@@ -1,0 +1,27 @@
+<div class="catgory animatedParent">
+    <div class="border-green animated bounceInLeft slow go"></div>
+    <div class="container lg-container">
+        <?php
+        /**
+         * @var Mage_Catalog_Model_Category $popCat
+         * @var Mage_Catalog_Model_Category $subCat
+         */
+        ?>
+        <h1><?php echo $this->__("POPULAR CATEGORIES"); ?></h1>
+        <div class="popular-categories-holder">
+            <?php foreach ($this->getPopularCategories() as $popCat) :?>
+                <?php //$popCat->load();?>
+                <div class="popular-category-col col-sm-4 col-xs-12"><img alt="" class="img-responsive" src="<?php echo $popCat->getImageUrl(); ?>" />
+                    <h4><?php echo $this->__("Shop ") . $popCat->getName(); ?></h4>
+                    <hr />
+                    <ul>
+                        <?php foreach ($this->getSubCat($popCat->getId()) as $subCat) :?>
+                            <li><a href="<?php echo $subCat->getUrl(); ?>"><?php echo $subCat->getName(); ?></a></li>
+                        <?php endforeach;?>
+                    </ul>
+                    <button class="btn btn-primary" onclick="setLocation('<?php echo $popCat->getUrl(); ?>')" type="button" data-toggle="button">See All</button>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>

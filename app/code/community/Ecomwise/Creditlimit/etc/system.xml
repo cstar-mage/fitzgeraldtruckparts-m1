@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<ecomwise translate="label">
+            <label><![CDATA[<div style="position: absolute;"><img id="ecomwise_block" src="" alt="" border="0" /></div>&nbsp;<script>$('ecomwise_block').src = SKIN_URL + "images/ecomwise/extensions_logo.png";</script>]]></label>
+            <sort_order>100</sort_order>
+        </ecomwise>
+    </tabs>
+    <sections>    
+        <creditlimit translate="label" module="ecomwisecredit">
+        	<label>Credit Limit</label>
+            <tab>ecomwise</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>110</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+          	<groups>           	          		
+                <info>
+		    		<label>Info &amp; Support</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<support>
+                            <sort_order>10</sort_order> 
+                    		<frontend_model>ecomwisecredit/adminhtml_creditlimit_support</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</support>
+                    </fields>
+		    	</info>     	
+          		<settings translate="label">
+          			<label>License</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<serial translate="label">
+							<label>License Key</label>
+	                        <frontend_type>text</frontend_type>
+	                        <sort_order>10</sort_order>
+	                        <show_in_default>1</show_in_default>
+	                        <show_in_website>1</show_in_website>
+	                        <show_in_store>1</show_in_store>
+		                </serial>                   
+		            </fields>
+				</settings>
+				<general translate="label">
+          			<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label">
+				            <label>Extension Enabled</label>			            	
+				            <frontend_type>select</frontend_type>
+				            <source_model>adminhtml/system_config_source_yesno</source_model>
+				            <sort_order>10</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				        </enabled>						        
+		            </fields>
+				</general>
+				<parameters_creditlimit translate="label">
+					<label>Credit Limit Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>4</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<use_limit translate="label">
+	                        <label>Use Credit Limit for Customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>Select 'No' to only use Pay On Account payment method without Credit Limit.</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_limit>                        
+                        <payment_method>							
+							<label>Payment Method for Credit Limit Order</label>
+							<comment>Select the payment method that is used for credit limit orders.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>ecomwisecredit/source_paymethod</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>																									
+						</payment_method>
+						<order_status_open translate="label">
+			            	<label>Credit Limit Open Orders</label>
+			            	<comment>
+			                	<![CDATA[Select the order statuses that are taken into account for the credit limit balance.]]>
+			              	</comment>
+			              	<frontend_type>Multiselect</frontend_type>
+			              	<source_model>ecomwisecredit/source_orderstatus</source_model>
+			              	<sort_order>40</sort_order>
+			              	<show_in_default>1</show_in_default>
+			              	<show_in_website>1</show_in_website>
+			              	<show_in_store>1</show_in_store>
+			            </order_status_open>
+			            <message translate="label">
+			            	<label>Credit Limit Exceeded Message</label>
+			            	<comment>
+			                	<![CDATA[Message that will be displayed when the credilt limit is exceeded.]]>
+			              	</comment>
+			              	<frontend_type>Textarea</frontend_type>	
+			              	<sort_order>50</sort_order>
+			              	<show_in_default>1</show_in_default>
+			              	<show_in_website>1</show_in_website>
+			              	<show_in_store>1</show_in_store>
+			            </message>
+			            <messageSet translate="label">
+			            	<label>Unset Customer or Global Credit Limit Message</label>
+			            	<comment>
+			                	<![CDATA[Message for unset customer or global credit limit.]]>
+			              	</comment>
+			              	<frontend_type>Textarea</frontend_type>	
+			              	<sort_order>60</sort_order>
+			              	<show_in_default>1</show_in_default>
+			              	<show_in_website>1</show_in_website>
+			              	<show_in_store>1</show_in_store>
+			            </messageSet>
+			            <hide_credit_limit translate="label">
+	                        <label>Hide Credit Limit for customers without Credit Limit Set</label>
+	                        <comment>
+			                	<![CDATA[Set to 'Yes' will hide the credit limit tab in the my account if no credit limit is set.]]>
+			              	</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_credit_limit> 				  
+                        <hide_for_groups translate="label">
+			            	<label>Hide Credit Limit Info For Customer Groups</label>
+			            	<comment>
+			                	<![CDATA[Select customer groups for which the credit limit tab in the my account is hidden]]>
+			              	</comment>
+			              	<frontend_type>Multiselect</frontend_type>
+			              	<source_model>ecomwisecredit/source_customergroup</source_model>
+			              	<sort_order>75</sort_order>
+			              	<show_in_default>1</show_in_default>
+			              	<show_in_website>1</show_in_website>
+			              	<show_in_store>1</show_in_store>
+			            </hide_for_groups>  	          
+			            <use_global_limit translate="label">
+	                        <label>Use Credit Limit for All Customers</label>
+	                       	<comment>
+			                	<![CDATA[Select 'Yes' if all customers will use a credit limit.]]>
+			              	</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_global_limit>                        
+                        <global_limit translate="label">
+							<label>Customer Limit Default Amount</label>
+	                        <frontend_type>text</frontend_type>
+	                        <sort_order>90</sort_order>
+	                        <show_in_default>1</show_in_default>
+	                        <show_in_website>1</show_in_website>
+	                        <show_in_store>1</show_in_store>
+	                        <validate>validate-number</validate>
+	                        <depends><use_global_limit>1</use_global_limit></depends>
+		                </global_limit>  		            	
+					</fields>
+				</parameters_creditlimit>						
+			</groups> 
+        </creditlimit>
+        <payment>
+            <groups>
+                <pay_on_account translate="label" module="ecomwisecredit">
+                    <label>Pay on Account</label>
+                    <sort_order>670</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <!-- <source_model>adminhtml/system_config_source_order_status</source_model> -->
+                            <source_model>ecomwisecredit/source_orderstatus</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title> 
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <frontend_class>validate-number</frontend_class>
+                        </sort_order> 
+                        <groups translate="label">
+			            	<label>Customer Groups</label>
+			            	<comment>
+			                	<![CDATA[Select Customer groups]]>
+			              	</comment>
+			              	<frontend_type>Multiselect</frontend_type>
+			              	<source_model>ecomwisecredit/source_customergroup</source_model>
+			              	<sort_order>10</sort_order>
+			              	<show_in_default>1</show_in_default>
+			              	<show_in_website>1</show_in_website>
+			              	<show_in_store>0</show_in_store>
+			            </groups>  		            			            		            			           			            
+			            <po_enabled translate="label">
+                            <label>Purchase Order Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>ecomwisecredit/source_pon</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </po_enabled>                      
+                    </fields>
+                </pay_on_account>
+            </groups>
+        </payment>        
+    </sections>
+</config>

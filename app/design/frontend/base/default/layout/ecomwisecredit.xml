@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<checkout_onepage_index>
+		<reference name="head">			 
+		  <action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/jquery.js</name></action>
+	  	  <!-- <action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/custom.js</name></action> -->
+	  	</reference>	
+	</checkout_onepage_index>
+	<checkout_onepage_paymentmethod>			
+		<block type="ecomwisecredit/methods" name="checkout.onepage.ecomwisecredit.message" output="toHtml"  template="ecomwisecredit/methods.phtml">
+			<action method="setMethodFormTemplate"><method>purchaseorder</method><template>payment/form/purchaseorder.phtml</template></action>
+        </block>				
+	</checkout_onepage_paymentmethod>   
+	<customer_account>
+		<reference name="customer_account_navigation">	
+			<block type="ecomwisecredit/customer_link" as="ecomwisecredit_customer_link" name="ecomwisecredit_customer_link">
+            	<action method="addLinkToParentBlock" />
+       		</block>		
+		</reference>
+	</customer_account>  
+	<creditlimit_account_index>		
+		<update handle="customer_account" />	
+		<reference name="head">					
+			<action method="setTitle" translate="title"><title>Credit Limit</title></action>
+		</reference>
+		<reference name="my.account.wrapper">
+			<block type="ecomwisecredit/history" name="ecomwisecredit.account" template="ecomwisecredit/info.phtml" />
+		</reference>		
+	</creditlimit_account_index>
+	<onestepcheckout_index_index>
+		<reference name="head">			 
+		  <action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/jquery.js</name></action>
+	  	  <!-- <action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/custom.js</name></action> -->
+	  	</reference>	
+	</onestepcheckout_index_index>	
+</layout>

@@ -1,0 +1,9 @@
+<? /** @var BroSolutions_AllCategories_Block_AllCategories $this  */ ?>
+<? /** @var Mage_Catalog_Model_Category $category */ ?>
+<div class="categories-list">
+    <ul>
+        <?php foreach ($this->getAllCategories() as $category) :?>
+            <li><a href="<?php echo $category->getUrlPath();?>"><?php echo $category->getName();?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

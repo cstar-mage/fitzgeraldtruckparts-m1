@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_category_layered>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_layered>
+    <catalog_category_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_view>
+    <catalogsearch_result_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalogsearch_result_index>
+    <cms_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/home.phtml</template>
+            </action>
+        </reference>
+    </cms_index_index>
+    <checkout_onepage_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+    <cms_page_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </cms_page_view>
+    <catalogsearch_result_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalogsearch_result_index>
+    <contacts_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="right">
+            <block type="cms/block" name="contacts_map">
+                <action method="setBlockId"><block_id>contacts_map</block_id></action>
+            </block>
+        </reference>
+    </contacts_index_index>
+</layout>

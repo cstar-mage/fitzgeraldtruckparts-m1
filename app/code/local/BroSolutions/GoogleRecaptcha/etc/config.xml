@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_GoogleRecaptcha>
+            <version>0.0.1</version>
+        </BroSolutions_GoogleRecaptcha>
+    </modules>
+    <global>
+        <helpers>
+            <bsgooglerecaptcha>
+                <class>BroSolutions_GoogleRecaptcha_Helper</class>
+            </bsgooglerecaptcha>
+        </helpers>
+        <blocks>
+            <bsgooglerecaptcha>
+                <class>BroSolutions_GoogleRecaptcha_Block</class>
+            </bsgooglerecaptcha>
+            <customer>
+                <rewrite>
+                    <form_register>BroSolutions_GoogleRecaptcha_Block_Customer_Form_Register</form_register>
+                </rewrite>
+            </customer>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <BroSolutions_GoogleRecaptcha before="Mage_Customer">BroSolutions_GoogleRecaptcha</BroSolutions_GoogleRecaptcha>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+</config>

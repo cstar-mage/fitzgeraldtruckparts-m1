@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_Contacts>
+            <version>0.0.1</version>
+        </BroSolutions_Contacts>
+    </modules>
+    <global>
+        <blocks>
+            <brosolutionscontacts>
+                <class>BroSolutions_Contacts_Block</class>
+            </brosolutionscontacts>
+        </blocks>
+    </global>
+    <!--stores>
+    <admin>
+        <dev>
+            <debug>
+                <template_hints>1</template_hints>
+                <template_hints_blocks>1</template_hints_blocks>
+            </debug>
+        </dev>
+    </admin>
+</stores-->
+</config>

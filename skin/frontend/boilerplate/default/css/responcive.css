@@ -1,0 +1,313 @@
+
+/****************************************/
+#shopping-cart-table .only-mobile-box{
+    display: none;
+}
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+    .divider {
+        display: none;
+    }
+    .top-header {
+        text-align: center;
+    }
+
+    /*fitz custom responsive styles*/
+    .navbar-brand {
+        float: none;
+    }
+    .navbar-brand > img {
+    display: block;
+    margin: 0 auto;
+    }
+    body > div.footer-container > div > div:nth-child(2) {
+        text-align: left;
+    }
+
+    .footer .container div .footer-logo {
+        max-width: 225px;
+        min-width: 225px;
+    }
+
+    .cms-home .search-section form#home-search {
+        display: none !important;
+    }
+
+    /*fitz end*/
+
+
+    .tittle.green {
+        font-size: 16px;
+    }
+    .truck-desc {
+        width: initial;
+    }
+    .truck-desc p, .truck-desc button, .truck-desc form, .truck-desc p + a {
+        margin-top: 5px;
+    }
+    button.btn {
+        min-height: 35px;
+        height: inherit;
+    }
+    .truck-desc .tittle.green + p + button {
+        height: 40px;
+    }
+    .footer, .footer a, .footer img, .address {
+        text-align: center;
+        margin: 0 auto;
+        float: none;
+    }
+    .dropdown .fa {
+        right: 5px;
+    }
+    .navbar-nav{
+        display: block;
+        margin: 7.5px 0;
+        width: auto;
+    }
+    .navbar-nav li{
+        overflow: hidden;
+    }
+    .navbar-nav > li {
+        display: block !important;
+    }
+    .navbar-default .navbar-nav > li > a {
+        text-align: left;
+    }
+    .navbar-default .navbar-nav .dropdown-menu .fa{
+        display: none;
+    }
+    .dropdown-menu{
+        position: static;
+        width: 100%;
+        left: 0 !important;
+        overflow: hidden;
+        height: 0;
+    }
+    .navbar-default .navbar-nav .has-children.open-mobile-nav ~ .dropdown-menu{
+        height: auto;
+        display: block;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+    .tittle {
+        font-size: 18px;
+    }
+    .mobile, .truck-section, .shot {
+        padding: 0;
+    }
+    .mobile img {
+        min-height: 185px;
+    }
+    .truck-desc .form-inline {
+        width: auto;
+    }
+    .truck-section .col-lg-4.col-md-4.col-sm-4.col-xs-12.padding-none {
+        margin-top: 20px;
+    }
+    .shot .col-lg-4 {
+        margin-bottom: 15px;
+    }
+    .img-responsive {
+        min-width: 100%;
+    }
+    .truck-desc p, .truck-desc button, .truck-desc form, .truck-desc p + a {
+        font-size: 13px;
+    }
+    .col2-left-layout .col-left{
+        float: none;
+    }
+    .toolbar{
+        padding-top: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+    }
+    .toolbar .view-mode,
+    .toolbar .pager,
+    .toolbar .limiter,
+    .toolbar .sorter{
+        margin: 0 0 5px;
+    }
+    .toolbar .sort_by_label{
+        width: auto;
+        padding: 0;
+        color: #3f4242;
+        background: none;
+        margin: 0;
+    }
+    .toolbar .limiter .small{
+        display: none;
+    }
+    .pager li>a, .pager li>span{
+        padding: 5px !important;
+    }
+    .category-products .products-grid{
+        font-size: 0;
+    }
+    .category-products .products-grid li{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+        float: none;
+        margin-bottom: 20px;
+    }
+    #product_addtocart_form >.row{
+        display: block;
+    }
+    .btn-cart{
+        width: 100%;
+    }
+    #shopping-cart-table .product-cart-image{
+        width: 100px;
+    }
+    #shopping-cart-table .product-cart-image img{
+        display: block;
+        width: 100%;
+    }
+    #shopping-cart-table .only-mobile-box{
+        display: block;
+    }
+    #shopping-cart-table .only-desktop-tc{
+        display: none;
+    }
+    #shopping-cart-table .product-info dl{
+        font-size: 15px;
+    }
+    #shopping-cart-table .cart-footer-actions button{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .bottom-cart-section >div{
+        margin-bottom: 20px;
+    }
+    .bottom-cart-section .button2{
+        width: 100%;
+    }
+    #billing-new-address-form #register-customer-password{
+        max-width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    #product_addtocart_form .add-to-cart-wrapper{
+        width: calc(25% - 23px);
+        float: none;
+    }
+    #product_addtocart_form .product-img-box{
+        width: calc(41.66666% + 23px);
+    }
+    .navbar-default .navbar-nav > li > a span {
+        display: block;
+    }
+    .gray-bg + .gray-bg {
+        padding-left: 0;
+    }
+    .padding-left {
+        padding-left: 0 !important;
+    }
+    .padding-right {
+        padding-right: 0 !important;
+    }
+    .padding-none {
+        padding: 0 !important;
+    }
+    .truck-section .padding-left img {
+        width: 100%;
+    }
+    .truck-desc .form-inline input, .truck-desc .form-inline button {
+        height: 45px;
+    }
+    .truck-section img.min-height {
+        min-height: 100%;
+    }
+    .shot {
+        overflow: hidden;
+    }
+    .featured-area ul, ul.column {
+        column-count: 2;
+    }
+    .address .col-lg-8 {
+        padding-top: 38px;
+    }
+    .footer img {
+        margin-top: 10px;
+        min-width: auto !important;
+    }
+    .footer .container + .container {
+        margin-top: 35px;
+    }
+    .footer .divider img {
+        float: none;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    div#navbar, .container.lg-container {
+        padding: 0;
+    }
+    .navbar-default .navbar-nav > li > a {
+        font-size: 13px;
+    }
+    .dark-bg {
+        padding: 14px;
+    }
+    .truck-section img.min-height {
+        height: auto;
+        min-height: 125px;
+    }
+    .trigger, .activetrigger {
+        width: 105px;
+    }
+    .tittle {
+        font-size: 19px;
+    }
+    .truck-desc .form-inline input, .truck-desc .form-inline button {
+        height: 40px;
+    }
+    .truck-desc .form-inline button {
+        min-height: 40px;
+        margin-top: 2px;
+        padding: 4px;
+    }
+    .truck-desc .form-inline input {
+        width: 56%;
+    }
+    .truck-desc .form-inline .form-group {
+        display: inline;
+    }
+    .shot img {
+        min-height: 135px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+
+    .social-icon {
+        margin-left: 10px;
+    }
+    p.timing {
+        font-size: 11px;
+    }
+    .truck-section img.min-height {
+        height: auto;
+        min-height: 175px;
+    }
+    .dark-bg {
+        padding: 24px;
+    }
+}
+@media (min-width: 1025px) {
+    .truck-section img.min-height {
+        min-height: 172px;
+    }
+}
+@media (min-width: 1100px) {
+    .truck-section img.min-height {
+        height: 100%;
+        min-height: 160px;
+    }
+}
+@media (min-width: 1350px) {
+
+}

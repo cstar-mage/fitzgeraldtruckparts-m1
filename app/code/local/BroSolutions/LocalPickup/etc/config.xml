@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_LocalPickup>
+            <version>0.0.1</version>
+        </BroSolutions_LocalPickup>
+    </modules>
+    <global>
+        <models>
+            <brosolutionslocalpickup>
+                <class>BroSolutions_LocalPickup_Model</class>
+            </brosolutionslocalpickup>
+        </models>
+        <helpers>
+            <brosolutionslocalpickup>
+                <class>BroSolutions_LocalPickup_Helper</class>
+            </brosolutionslocalpickup>
+        </helpers>
+    </global>
+    <default>
+        <carriers>
+            <brosolutionslocalpickup>
+                <active>1</active>
+                <model>brosolutionslocalpickup/carrier</model>
+                <title>Local Pickup</title>
+                <sort_order>10</sort_order>
+                <sallowspecific>0</sallowspecific>
+                <express_max_weight>1000</express_max_weight>
+            </brosolutionslocalpickup>
+        </carriers>
+    </default>
+    <frontend>
+        <events>
+            <payment_method_is_active>
+                <observers>
+                    <paymentfilter_payment_method_is_active>
+                        <type>singleton</type>
+                        <class>brosolutionslocalpickup/observer</class>
+                        <method>paymentMethodIsActive</method>
+                    </paymentfilter_payment_method_is_active>
+                </observers>
+            </payment_method_is_active>
+        </events>
+    </frontend>
+</config>

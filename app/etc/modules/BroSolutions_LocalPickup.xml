@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_LocalPickup>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BroSolutions_LocalPickup>
+    </modules>
+</config>
+

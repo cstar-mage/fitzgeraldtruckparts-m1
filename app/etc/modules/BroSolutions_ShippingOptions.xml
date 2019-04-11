@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_ShippingOptions>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BroSolutions_ShippingOptions>
+    </modules>
+</config>

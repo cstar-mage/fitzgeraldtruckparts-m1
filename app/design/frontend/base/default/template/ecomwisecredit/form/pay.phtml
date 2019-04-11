@@ -1,0 +1,25 @@
+<?php $_code=$this->getMethodCode() ?>
+<?php if(Mage::getStoreConfig('payment/pay_on_account/po_enabled')){?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>        
+        <label <?php if(Mage::getStoreConfig('payment/pay_on_account/po_enabled')==2){ ?>class="required"<?php }?> for="<?php echo $_code ?>_creditlimit_po_number"><?php echo Mage::helper('ecomwisecredit')->__('Purchase Order Number:') ?></label>
+        <span class="input-box">
+       <?php if(Mage::getStoreConfig('payment/pay_on_account/po_enabled')==2){ ?>
+        	<p class="required">* Required Fields</p>
+        	<?php }?>
+            <input onkeypress='return validateInput(event)' type="text" title="<?php echo Mage::helper('ecomwisecredit')->__('Purchase Order Number:') ?>" class="input-text <?php if(Mage::getStoreConfig('payment/pay_on_account/po_enabled')==2){ ?>required-entry<?php }?>" 
+            id="<?php echo $_code ?>_creditlimit_po_number" name="payment[creditlimit_po_number]" value="<?php echo $this->htmlEscape($this->getInfoData('creditlimit_po_number')) ?>" />
+        </span>
+    </li>       
+</ul>
+<?php }?> 
+<script type="text/javascript">
+window.validateInput = function(evt) {	
+	if ((evt.charCode >= 48 && evt.charCode <= 57) || (evt.charCode >= 97 && evt.charCode <= 122) || evt.keyCode == 8 || evt.keyCode == 46 || evt.which >= 65 && evt.which <= 90){		
+        return true;
+	}
+    else{
+        return false;
+}
+	}
+</script>

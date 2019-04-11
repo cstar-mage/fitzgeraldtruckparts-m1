@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_SquarePayment>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BroSolutions_SquarePayment>
+        <depends>
+            <Mage_Payment />
+        </depends>
+    </modules>
+</config>

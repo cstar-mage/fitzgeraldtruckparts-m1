@@ -1,0 +1,56 @@
+<?php //var_dump($this->getSlidesGroup()->getData()); ?>
+<?php //var_dump($this->getSlidesCollection()->toArray());
+$sliderGroupDataJson = $this->getSlidesGroupJsonConfig();
+$slideGroupData = $this->getSlidesGroup();
+$slideType = (bool) $slideGroupData->getSlideType();
+$sliderCollection = $this->getSlidesCollection();
+?>
+<?php if($slideGroupData->getData('status') === '1' ): ?>
+<script>
+    jQuery(function($){
+        window.sliderConfigObj<?php echo $this->getSliderGroupId(); ?> = new Slider(<?php echo $sliderGroupDataJson; ?>);
+    });
+</script>
+
+<div class="slider-main-holder">
+    <?php if($slideType): ?>
+        <div class="full-screen-slider-<?php echo $this->getSliderGroupId(); ?>">
+
+                <?php $i = 0; foreach ($sliderCollection as $item): $i++; ?>
+                    <div class="item swiper-slide item-num-<?php echo $i; ?>">
+                       
+                        <?php $videoLink = $item->getData('video_link'); ?>
+                        <?php if(!empty($videoLink)): ?>
+                            <!--insert code here-->
+                            <div class="video-holder">
+                                <iframe src="https://www.youtube.com/embed/<?php echo $videoLink; ?>?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <?php //echo $videoLink; ?>
+                        <?php else: ?>
+    			<img src="<?php echo $this->getBaseUrl('media').'media/'.$item->getImagePath(); ?>">
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <div class="default-screen-slider">
+
+        </div>
+    <?php endif; ?>
+
+</div>
+
+<script type="text/javascript">
+    jQuery(function($){
+
+        jQuery('.full-screen-slider-<?php echo $this->getSliderGroupId(); ?>').slick({
+            autoplay: <?php echo $slideGroupData->getAutoPlayJs(); ?>,
+            dots: <?php echo $slideGroupData->getIsDotsJs(); ?>,
+	        arrows: <?php echo $slideGroupData->getIsArrowsJs(); ?>,
+            infinite: true,
+            autoplaySpeed: <?php echo $slideGroupData->getAnimateSpeedJs(); ?>,
+        });
+    });
+
+</script>
+<?php endif; ?>

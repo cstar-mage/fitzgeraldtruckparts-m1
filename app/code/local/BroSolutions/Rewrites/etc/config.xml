@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_Rewrites>
+            <version>0.0.1</version>
+        </BroSolutions_Rewrites>
+    </modules>
+    <global>
+        <blocks>
+            <brorewrites>
+                <class>BroSolutions_Rewrites_Block</class>
+            </brorewrites>
+            <catalog>
+                <rewrite>
+                    <product_view>BroSolutions_Rewrites_Block_Catalog_Product_View</product_view>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <models>
+            <brorewrites>
+                <class>BroSolutions_Rewrites_Model</class>
+            </brorewrites>
+            <sales>
+                <rewrite>
+                    <order_invoice>BroSolutions_Rewrites_Model_Sales_Order_Invoice</order_invoice>
+                    <order_shipment>BroSolutions_Rewrites_Model_Sales_Order_Shipment</order_shipment>
+                </rewrite>
+            </sales>
+            <sales>
+                <rewrite>
+                    <order_pdf_invoice>BroSolutions_Rewrites_Model_Sales_Order_Pdf_Invoice</order_pdf_invoice>
+                    <order_pdf_items_invoice_default>BroSolutions_Rewrites_Model_Sales_Order_Pdf_Items_Invoice_Default</order_pdf_items_invoice_default>
+                </rewrite>
+            </sales>
+        </models>
+    </global>
+</config>

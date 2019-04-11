@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_sales_order_create_index>
+    	<reference name="head">
+    		<action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/jquery-1.10.1.min.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>ecomwisecredit/js/noconflict.js</name></action>
+        </reference>         
+    </adminhtml_sales_order_create_index>      
+    
+    <adminhtml_customer_edit>             
+        <reference name="js">
+            <block type="ecomwisecredit/adminhtml_customer_edit_tab_creditlimit_js" template="ecomwisecredit/creditlimit/edit/js.phtml" name="creditlimit_edit_js">
+                <action method="setPrefix"><value>_creditlimit</value></action>
+            </block>
+        </reference>
+        <reference name="customer_edit_tab_view">
+            <block type="ecomwisecredit/adminhtml_customer_edit_tab_creditlimit_limit" name="creditlimit.limit" template="ecomwisecredit/creditlimit/limit.phtml" before="-"></block>                            
+        </reference>
+    </adminhtml_customer_edit> 	
+    
+    <adminhtml_credit_rules_index>
+        <reference name="content">
+            <block type="ecomwisecredit/credit_rules" name="credit_rules" />
+        </reference>
+    </adminhtml_credit_rules_index>  
+    
+    <adminhtml_credit_rules_edit>                
+        <reference name="left">
+            <block type="ecomwisecredit/credit_rules_edit_tabs" name="credit_limit_edit_tabs">
+                <block type="ecomwisecredit/credit_rules_edit_tab_main" name="credit_limit_edit_tab_main"/>
+                <block type="ecomwisecredit/credit_rules_edit_tab_customers" name="credit_limit_edit_tab_customers">                
+                	<block type="adminhtml/widget_grid_serializer" name="upsell_grid_serializer">
+		                <action method="initSerializerBlock">
+		                    <grid_block_name>customersGrid</grid_block_name>
+		                    <data_callback>getSelected</data_callback>
+		                    <hidden_input_name>customer_ids</hidden_input_name>
+		                    <reload_param_name>customers</reload_param_name>
+		                </action>
+		            </block>                
+                </block>                
+                <action method="addTab"><name>main_section</name><block>credit_limit_edit_tab_main</block></action>
+                <action method="addTab"><name>customers_section</name><block>credit_limit_edit_tab_customers</block></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="ecomwisecredit/credit_rules_edit" name="credit_limit_edit"/>            
+        </reference>          
+    </adminhtml_credit_rules_edit>    
+    
+    <adminhtml_credit_rules_new>                 
+        <reference name="left">
+            <block type="ecomwisecredit/credit_rules_edit_tabs" name="credit_limit_edit_tabs">
+                <block type="ecomwisecredit/credit_rules_edit_tab_main" name="credit_limit_edit_tab_main"/>
+                <block type="ecomwisecredit/credit_rules_edit_tab_customers" name="credit_limit_edit_tab_customers"></block>                                                
+                <action method="addTab"><name>main_section</name><block>credit_limit_edit_tab_main</block></action>
+                <action method="addTab"><name>customers_section</name><block>credit_limit_edit_tab_customers</block></action>               
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="ecomwisecredit/credit_rules_edit" name="credit_limit_edit"/>
+        </reference>          
+    </adminhtml_credit_rules_new>  
+    
+    <adminhtml_credit_rules_add>                 
+        <reference name="left">
+            <block type="ecomwisecredit/credit_rules_edit_tabs" name="credit_limit_edit_tabs">
+                <block type="ecomwisecredit/credit_rules_edit_tab_main" name="credit_limit_edit_tab_main"/>
+                <block type="ecomwisecredit/credit_rules_edit_tab_customers" name="credit_limit_edit_tab_customers"></block>                                                
+                <action method="addTab"><name>main_section</name><block>credit_limit_edit_tab_main</block></action>
+                <action method="addTab"><name>customers_section</name><block>credit_limit_edit_tab_customers</block></action>               
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="ecomwisecredit/credit_rules_edit" name="credit_limit_edit"/>
+        </reference>          
+    </adminhtml_credit_rules_add>  
+    
+	<adminhtml_customer_edit>
+		<reference name="customer_edit_tabs">
+	    	<action method="addTab">
+	        	<name>credit_limit_customer_edit_tab_limits</name>
+	        	<block>ecomwisecredit/adminhtml_customer_edit_tab_limits</block>
+	    	</action>
+	   </reference>
+	</adminhtml_customer_edit>  
+</layout> 

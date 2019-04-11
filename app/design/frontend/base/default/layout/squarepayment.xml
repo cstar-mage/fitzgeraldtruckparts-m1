@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index translate="label">
+        <reference name="head">
+            <!--action method="addExternalItem"><type>external_js</type><name>https://js.squareup.com/v2/paymentform</name><params/></action-->
+			<action method="addItem"><type>skin_js</type><name>js/jquery-2.2.4.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/noConflict.js</name></action>
+						<action method="addItem"><type>skin_js</type><name>js/squarejs.js</name></action>
+        </reference>
+		<reference name="checkout.onepage.payment">
+			<action method="setTemplate">
+				<template>squarepayment/checkout/onepage/payment.phtml</template>
+			</action>
+		</reference>
+	</checkout_onepage_index>
+	<checkout_onepage_paymentmethod>
+		<reference name="root">
+			<action method="setTemplate">
+				<template>pay/onepage/payment/methods.phtml</template>
+			</action>
+		</reference>
+    </checkout_onepage_paymentmethod>
+
+</layout>

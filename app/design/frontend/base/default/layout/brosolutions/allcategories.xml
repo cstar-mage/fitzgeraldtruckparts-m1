@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <allcategories_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="allcategories/allcategories" name="allcategories_index"
+                   template="brosolutions/allcategories/all_categories.phtml"/>
+        </reference>
+    </allcategories_index_index>
+</layout>

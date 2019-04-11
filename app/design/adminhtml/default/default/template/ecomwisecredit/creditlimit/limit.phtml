@@ -1,0 +1,18 @@
+<?php if(Mage::getStoreConfig('creditlimit/general/enabled') && Mage::getStoreConfig('creditlimit/parameters_creditlimit/use_limit')){?>
+<?php $total = Mage::helper('ecomwisecredit')->getTotalOfOrders('admin') ?>
+<?php $credit_limit = Mage::helper('ecomwisecredit')->getCreditLimit('admin') ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-account"><?php echo $this->helper('ecomwisecredit')->__('Credit Limit')?></h4>    </div>
+    <div class="fieldset">                
+        <?php echo Mage::helper('ecomwisecredit')->__('Total credit limit: '); ?>
+		<?php echo Mage::helper('core')->currency($credit_limit); ?>
+		</br>
+		<?php echo Mage::helper('ecomwisecredit')->__('Used credit limit: '); ?>
+		<?php echo Mage::helper('core')->currency($total); ?>
+		</br>
+		<?php echo Mage::helper('ecomwisecredit')->__('Available credit limit: '); ?>
+		<?php echo Mage::helper('core')->currency(($credit_limit - $total)); ?>
+    </div>
+</div>
+<?php } ?>

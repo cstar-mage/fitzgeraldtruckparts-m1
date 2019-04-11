@@ -1,0 +1,50 @@
+<div class="container top-header">
+<div class="row">
+    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <a class="navbar-brand" href="<?php echo $this->getUrl('') ?>">
+            <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
+        </a>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div><?php echo $this->__('Order by phone'); ?></div>
+        <a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>"><?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('social-icons')->toHtml(); ?> 
+        </div>
+
+            
+    </div>
+    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div id="header-search" class="skip-content">
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+        <?php echo $this->getChildHtml('topLinks') ?>
+
+        <div class="header-minicart shoping">
+            <?php echo $this->getChildHtml('minicart_head'); ?>
+        </div>
+        </div>
+    </div>
+</div>
+    
+</div>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <?php echo $this->getChildHtml('topMenu') ?>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+

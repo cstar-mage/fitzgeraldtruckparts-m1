@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Tech18_OrderComment>
+			<active>true</active>
+			<codePool>local</codePool>
+			<version>1.0.2</version>
+		</Tech18_OrderComment>
+	</modules>
+</config>

@@ -1,0 +1,22 @@
+<?php
+$helper = Mage::helper('shipmentcommentgrid/shipsFrom');
+$options = $helper->getShipsFromOptions();
+
+?>
+
+<div class="entry-edit" id="sales_order_view">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-account"><?php echo $this->__('Ships from'); ?></h4>
+    </div>
+    <div class="fieldset">
+        <label for="ships-from">Ships from:</label>
+        <select id="ships-from" name="ships_from" class="ships-from" >
+            <option selected value="<?php echo $options[0]['value']; ?>" ><?php echo $options[0]['label']; ?></option>
+            <?php unset($options[0]); ?>
+            <?php foreach ($options as $option) :?>
+                <option value="<?php echo $option['value']; ?>"><?php echo $option['label']; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class=""></div>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BroSolutions_Contacts>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BroSolutions_Contacts>
+    </modules>
+</config>

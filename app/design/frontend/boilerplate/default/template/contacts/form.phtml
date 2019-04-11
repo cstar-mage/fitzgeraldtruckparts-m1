@@ -1,0 +1,211 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
+</div>
+<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
+    <div class="fieldset" style="overflow: hidden;">
+        <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
+        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+        <ul class="form-list">
+            <li class="fields row">
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name') ?></label>
+                    <div class="input-box">
+                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields row">
+                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input onchange="showHideTelephoneField(event);" name="is_phone_provided" id="is_phone_provided" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('May we contact you by phone?')) ?>" value="" class="input-text" type="checkbox" />
+                    <label for="is_phone_provided"><?php echo Mage::helper('contacts')->__('May we contact you by phone?') ?></label>
+                </div>
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12 telephone-field-wrapper no-display">
+                    <label for="telephone"><em>*</em><?php echo Mage::helper('contacts')->__('Telephone') ?></label>
+                    <div class="input-box">
+                        <input name="telephone" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Telephone')) ?>" value="" class="input-text" type="tel" />
+                    </div>
+                </div>
+            </li>
+            <li class="field" style="text-align: left; float: left; width: 100%;">
+                <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Comment') ?></label>
+                <div class="input-box">
+                    <textarea placeholder="I have a question about..." name="comment" id="comment" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Comment')) ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+            <li class="field">
+                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input name="shipping_address_present" id="shipping_address_present" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Where would you like this to be shipped?')) ?>" value="" class="input-text" type="checkbox"  onclick="showHideShippimgForm(event);" />
+                    <label for="shipping_address_present"><?php echo Mage::helper('contacts')->__('Where would you like this to be shipped?') ?></label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="fieldset address-contact-form no-display">
+        <h2 class="legend"><?php echo $this->__('Address') ?></h2>
+        <ul class="form-list">
+            <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
+            <li class="fields row">
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label for="street_1" class="required"><em>*</em><?php echo $this->__('Street Address') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="street_1" value="" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>" id="street_1" class="input-text <?php echo $_streetValidationClass ?>" />
+                    </div>
+                </div>
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+                    <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                        <label for="street<?php echo $_i ?>"><?php echo $this->__('Street Address %s', $_i) ?></label>
+                        <div class="input-box">
+                            <input type="text" name="street_<?php echo $_i ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address %s', $_i)) ?>" id="street_<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" />
+                        </div>
+                    <?php endfor; ?>
+                </div>
+
+                <div class="field col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label for="city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="city" value=""  title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields row">
+                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label for="region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label>
+                    <div class="select-frame">
+                        <div class="select-holder region-field-wrap">
+                            <select id="region_id" name="region_id" title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>" class="validate-select" style="display:none;">
+                                <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                            </select>
+                        </div>
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            $('region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
+                            //]]>
+                        </script>
+                        <input type="text" id="region" name="region" value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?>" />
+                    </div>
+                </div>
+            </li>
+            <li class="fields row">
+                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label for="zip" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="postcode" value="" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Zip/Postal Code')) ?>" id="zip" class="input-text validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
+                    </div>
+                </div>
+                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
+                    <div class="select-frame">
+                        <div class="select-holder" style="width: 100%;">
+                            <?php echo $this->getCountryHtmlSelect() ?>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="buttons-set" style="float:left;">
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Submit')) ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+    var shippingFormInputFields = ['street_1', 'street_2', 'city', 'region', 'region_id', 'zip'];
+    var shippingFormSelectFields = ['country', 'region_id'];
+
+    function showHideTelephoneField(event)
+    {
+        var checkedElement = jQuery(event.target);
+        if(checkedElement.is(':checked')){
+            jQuery('.telephone-field-wrapper').removeClass('no-display');
+            jQuery('#telephone').addClass('required-entry');
+            jQuery('#telephone').removeAttr('disabled');
+        } else {
+            jQuery('.telephone-field-wrapper').addClass('no-display');
+            jQuery('#telephone').removeClass('required-entry');
+            jQuery('#telephone').attr('disabled', 'disabled');
+        }
+    }
+    function showHideShippimgForm(event)
+    {
+        var checkedElement = jQuery(event.target);
+        if(checkedElement.is(':checked')){
+            jQuery('.address-contact-form').removeClass('no-display');
+            shippingFormInputFields.each(function(selector){
+                if(selector !== 'street_2'){
+                    jQuery('#'+selector).addClass('required-entry');
+                }
+                jQuery('#'+selector).removeAttr('disabled');
+            });
+            shippingFormSelectFields.each(function(selector){
+                jQuery('#'+selector).addClass('validate-select');
+                jQuery('#'+selector).removeAttr('disabled');
+            });
+        } else {
+            jQuery('.address-contact-form').addClass('no-display');
+            shippingFormInputFields.each(function(selector){
+                if(selector !== 'street_2'){
+                    jQuery('#'+selector).removeClass('required-entry');
+                }
+                jQuery('#'+selector).attr('disabled', 'disabled');
+            });
+            shippingFormSelectFields.each(function(selector){
+                jQuery('#'+selector).removeClass('validate-select');
+                jQuery('#'+selector).attr('disabled', 'disabled');
+            });
+        }
+    }
+    jQuery(document).ready(function(){
+        jQuery('#is_phone_provided').removeAttr("checked");
+        jQuery('#shipping_address_present').removeAttr("checked");
+        shippingFormInputFields.each(function(selector){
+            if(selector !== 'street_2'){
+                jQuery('#'+selector).removeClass('required-entry');
+            }
+            jQuery('#'+selector).attr('disabled', 'disabled');
+        });
+        shippingFormSelectFields.each(function(selector){
+            jQuery('#'+selector).removeClass('validate-select');
+            jQuery('#'+selector).attr('disabled', 'disabled');
+        });
+    });
+//]]>
+</script>

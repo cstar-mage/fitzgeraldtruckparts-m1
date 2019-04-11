@@ -1,0 +1,13 @@
+<?php $_code=$this->getMethodCode() ?>
+<?php $store_id = Mage::getSingleton('adminhtml/session_quote')->getStore()->getId();
+     if(Mage::getStoreConfig('payment/pay_on_account/po_enabled',$store_id)){?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>        
+        <label for="<?php echo $_code ?>_creditlimit_po_number"><?php echo $this->__('Purchase Order Number:') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('Purchase Order Number:') ?>" class="input-text <?php if(Mage::getStoreConfig('payment/pay_on_account/po_enabled')==2){ ?>required-entry<?php }?>" 
+            id="<?php echo $_code ?>_creditlimit_po_number" name="payment[creditlimit_po_number]" value="<?php echo $this->htmlEscape($this->getInfoData('creditlimit_po_number')) ?>" />
+        </span>
+    </li>       
+</ul>
+<?php }?>  

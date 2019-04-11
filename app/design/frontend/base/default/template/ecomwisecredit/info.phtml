@@ -1,0 +1,30 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $total = Mage::helper('ecomwisecredit')->getTotalOfOrders() ?>
+<?php $credit_limit = Mage::helper('ecomwisecredit')->getCreditLimit() ?>
+<?php 
+if (Mage::getStoreConfig('creditlimit/parameters_creditlimit/hide_credit_limit') == 1 && $credit_limit == 0) {
+			Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl());
+			return;
+		}
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Credit Limit') ?></h1>
+</div>
+<div class="creditlimit_total">
+<h2 class="sub-title"><?php echo Mage::helper('ecomwisecredit')->__('Total Credit Limit'); ?></h2>
+<?php echo Mage::helper('ecomwisecredit')->__('Your total credit limit is: '); ?>
+<?php echo Mage::helper('core')->currency($credit_limit); ?>
+</div>
+</br>
+<div class="creditlimit_used">
+<h2 class="sub-title"><?php echo Mage::helper('ecomwisecredit')->__('Used Credit Limit'); ?></h2>
+<?php echo Mage::helper('ecomwisecredit')->__('Your used credit limit is: '); ?>
+<?php echo Mage::helper('core')->currency($total); ?>
+</div>
+</br>
+<div class="creditlimit_available">
+<h2 class="sub-title"><?php echo Mage::helper('ecomwisecredit')->__('Available Credit Limit'); ?></h2>
+<?php echo Mage::helper('ecomwisecredit')->__('Your available credit limit is: '); ?>
+<?php echo Mage::helper('core')->currency(($credit_limit - $total)); ?>
+</div>
+</br>

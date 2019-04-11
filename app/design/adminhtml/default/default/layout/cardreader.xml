@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_sales_order_create_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="cardreader/settings/usejquery">
+                <script>cardreader/jquery-1.11.2.js</script>
+            </action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="cardfooter" as="cardfooter" template="cardreader/jquery.cardswipe.phtml" output="toHtml"/>
+            <block type="core/template" name="cardfootermage" as="cardfootermage" template="cardreader/mage.cardswipe.phtml" output="toHtml"/>
+        </reference>
+    </adminhtml_sales_order_create_index>
+</layout>

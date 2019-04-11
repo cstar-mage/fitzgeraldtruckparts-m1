@@ -1,0 +1,117 @@
+@media (min-width: 768px) {
+    .products-grid .item { min-height: 540px; margin-bottom: 60px; }
+    .actions { position: absolute; bottom: 50px; }
+}
+
+
+/*FTP Custom Styles --------------*/
+
+.create_account .truck-desc {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+body.catalog-category-view p.category-image img {
+	max-width: 400px;
+}
+body.catalog-category-view p.category-image {
+	text-align: center;
+}
+
+h3.border-bottom {
+    font-size: 22px;
+    font-weight: 400;
+    box-shadow: inset 0 -3px #CCC;
+    padding-bottom: 15px;
+    position: relative;
+}
+h3.border-bottom:after {
+    height: 3px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    background: #2A8391;
+}
+
+/*Shipping Options Area*/
+
+form#co-shipping-method-form .sp-methods ul {
+	list-style-type: none;
+}
+form#co-shipping-method-form .sp-methods ul li input[type=radio] {
+	float: left;
+	margin-right: 10px;
+}
+
+/*Account Area*/
+
+#dt_method_checkmo { display: none; }
+
+.customer-account .sidebar ul {
+	list-style-type: none;
+}
+
+.aw-hdu3-customer-index .pager{
+	text-align: left;
+}
+.aw-hdu3-customer-index #awhdu3-ticket-list-table thead{
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: .25rem;
+}
+.aw-hdu3-customer-index #awhdu3-ticket-list-table thead tr th{
+	padding: 5px;
+}
+.aw-hdu3-customer-index #awhdu3-customer-create-ticket-form ul {
+	list-style-type: none;
+}
+.aw-hdu3-customer-index #awhdu3-customer-create-ticket-form input#awhdu3-ticketform-title, .aw-hdu3-customer-index #awhdu3-customer-create-ticket-form textarea#awhdu3-ticketform-message, .aw-hdu3-customer-index #awhdu3-customer-create-ticket-form select#awhdu3-ticketform-order, .aw-hdu3-customer-index #awhdu3-customer-create-ticket-form select#awhdu3-ticketform-department {
+	display: block;
+    width: 50%;
+    padding: .5rem .75rem;
+    font-size: 13px;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+.social li a img {
+	width: 36px;
+	margin-top: 5px;
+}
+ul.social {
+	text-align: center;
+}
+
+.products-grid .item .product-info .price-box p {
+    color: #000 !important;
+    font-size: 11px !important;
+}
+.slider-main-holder .item img{
+    min-height: 1px !important;
+    width: 100%;
+    height: auto;
+}
+
+.special-price .price-label {
+    font-size: 24px !important;
+    color: #ff0000;
+}
+.special-price .price {
+    font-size: 22px;
+    color: #ff0000;
+}
+
+
+/*FTP Custom Styles End ------------*/

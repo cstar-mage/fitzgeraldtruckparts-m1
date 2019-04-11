@@ -1,0 +1,195 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Helpdesk3
+ * @version    3.3.10
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php /** @var AW_Helpdesk3_Block_Adminhtml_Ticket_Edit_Popup_Assignee $this */?>
+                <?php //var_dump($this->getTicket()->getData()); ?>
+<?php //var_dump($this->getTicket()->getData('street_2'))?>
+
+<table cellspacing="0" class="form-list">
+    <tbody>
+    <tr>
+        <td class="label">
+            <label for="popup_<?php echo $this->getTicket()->getId(); ?>_assignee_department"><?php echo $this->__('Department');?></label>
+        </td>
+        <td class="value">
+            <select id="popup_<?php echo $this->getTicket()->getId(); ?>_assignee_department" name="department" class=" select">
+                <?php foreach($this->getDepartmentCollectionOptionHash() as $value => $label): ?>
+                    <?php $isSelected = $value == $this->getTicket()->getDepartmentId();?>
+                    <option value="<?php echo $value;?>" <?php echo $isSelected?'selected':'';?>><?php echo $label;?></option>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="popup_<?php echo $this->getTicket()->getId(); ?>_assignee_agent"><?php echo $this->__('Help Desk Agent');?></label>
+        </td>
+        <td class="value">
+            <select id="popup_<?php echo $this->getTicket()->getId(); ?>_assignee_agent" name="agent" class=" select">
+                <?php foreach($this->getAgentCollectionOptionHash() as $value => $label): ?>
+                    <?php $isSelected = $value == $this->getTicket()->getDepartmentAgentId();?>
+                    <option value="<?php echo $value;?>" <?php echo $isSelected?'selected':'';?>><?php echo $label;?></option>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+<?php if(!$this->getTicket()->isReadOnly()):?>
+    <tr>
+        <td class="label">
+            <label for="popup_status"><?php echo $this->__('Status');?></label>
+        </td>
+        <td class="value">
+            <select id="popup_status" name="status" class=" select">
+                <?php foreach($this->getStatusOptionArray() as $option): ?>
+                    <?php $isSelected = $option['value'] == $this->getTicket()->getStatus();?>
+                    <option value="<?php echo $option['value'];?>" <?php echo $isSelected?'selected':'';?>><?php echo $option['label'];?></option>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="popup_priority"><?php echo $this->__('Priority');?></label>
+        </td>
+        <td class="value">
+            <select id="popup_priority" name="priority" class=" select">
+                <?php foreach($this->getPriorityOptionArray() as $option): ?>
+                    <?php $isSelected = $option['value'] == $this->getTicket()->getPriority();?>
+                    <option value="<?php echo $option['value'];?>" <?php echo $isSelected?'selected':'';?>><?php echo $option['label'];?></option>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="popup_order"><?php echo $this->__('Order');?></label>
+        </td>
+        <td class="value">
+            <select id="popup_order" name="order" class=" select">
+                <?php foreach($this->getOrderOptionHash() as $value => $label): ?>
+                    <?php $isSelected = $value == $this->getTicket()->getOrder()->getId();?>
+                    <option value="<?php echo $value;?>" <?php echo $isSelected?'selected':'';?>><?php echo $label;?></option>
+                <?php endforeach;?>
+            </select>
+        </td>
+    </tr>
+<?php endif;?>
+    <tr>
+        <td class="label">
+            <label for="popup_assignee_note"><?php echo $this->__('Message to Help Desk Agents');?></label>
+        </td>
+        <td class="value">
+            <textarea id="popup_assignee_note" name="comment"><?php echo $this->getTicket()->getComment(); ?></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label>
+                <input type="checkbox" name="lock" <?php echo $this->getTicket()->getIsLocked()?'checked':''?>/>
+                <?php echo $this->__('Lock Ticket');?>
+            </label>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="telephone"><?php echo $this->__('Telephone');?></label>
+        </td>
+        <td class="value">
+            <input id="telephone" name="telephone" value="<?php echo $this->getTicket()->getTelephone(); ?>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="street_1"><?php echo $this->__('Street 1');?></label>
+        </td>
+        <td class="value">
+            <input id="street_1" name="street_1" value="<?php echo $this->getTicket()->getData('street_1'); ?>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="street_2"><?php echo $this->__('Street 2');?></label>
+        </td>
+        <td class="value">
+            <input id="street_2" name="street_2" value="<?php echo $this->getTicket()->getData('street_2'); ?>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="label">
+            <label for="postcode"><?php echo $this->__('Postcode');?></label>
+        </td>
+        <td class="value">
+            <input id="postcode" name="postcode" value="<?php echo $this->getTicket()->getPostcode(); ?>" />
+        </td>
+    </tr>
+    <?php $region = Mage::getModel('directory/region')->load($this->getTicket()->getRegionId()); ?>
+    <tr>
+        <td class="label">
+            <label for="region"><?php echo $this->__('Region');?></label>
+        </td>
+        <td class="value">
+            <input id="region" name="region" value="<?php if($region && $region->getId()): ?><?php echo $region->getName(); ?><?php endif; ?>" />
+            <input type="hidden" name="region_id" value="<?php if($region && $region->getId()): ?><?php echo $region->getId(); ?><?php endif; ?>" />
+        </td>
+    </tr>
+        <tr>
+            <td class="label">
+                <label for="country_id"><?php echo $this->__('Country');?></label>
+            </td>
+            <td class="value">
+                <input id="country_id" name="country_id" value="<?php echo $this->getTicket()->getCountryId(); ?>" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<script type="text/javascript">
+    var awHdu3Ticket<?php echo $this->getTicket()->getId(); ?>AssigneePopupAgentsDepend = function() {
+        var departmentsConfig = <?php echo Mage::helper('aw_hdu3/ticket')->getDepartmentsConfigJson();?>;
+        var departmentSelector = $('popup_<?php echo $this->getTicket()->getId(); ?>_assignee_department');
+        var agentSelector = $('popup_<?php echo $this->getTicket()->getId(); ?>_assignee_agent');
+        var departmentId = departmentSelector.value;
+        if (departmentsConfig && !Object.isUndefined(departmentsConfig[departmentId])) {
+            var currentSelectedOptionId = agentSelector.getValue();
+            agentSelector.select('option').each(function(option){
+                option.remove();
+            });
+            (departmentsConfig[departmentId]).each(function(item){
+                var option = new Element('option');
+                option.value = item.value;
+                option.update(item.label);
+                if (item.value == currentSelectedOptionId) {
+                    option.selected = true;
+                }
+                agentSelector.appendChild(option);
+            });
+            agentSelector.show();
+        } else {
+            agentSelector.hide();
+        }
+    };
+    $('popup_<?php echo $this->getTicket()->getId(); ?>_assignee_department').observe('change', awHdu3Ticket<?php echo $this->getTicket()->getId(); ?>AssigneePopupAgentsDepend);
+    awHdu3Ticket<?php echo $this->getTicket()->getId(); ?>AssigneePopupAgentsDepend();
+</script>

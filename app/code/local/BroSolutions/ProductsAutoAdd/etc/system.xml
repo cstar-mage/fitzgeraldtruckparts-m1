@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <bsproductsautoadd translate="label" module="brosolproductsautoadd">
+            <label>Product auto add URLs settings</label>
+            <sort_order>300</sort_order>
+        </bsproductsautoadd>
+    </tabs>
+    <sections>
+        <brosolproductsautoadd translate="label" module="brosolproductsautoadd">
+            <label>Product auto add URLs settings</label>
+            <tab>bsproductsautoadd</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>99999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>Product auto add</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <for_logged_in translate="label">
+                            <frontend_type>select</frontend_type>
+                            <label>Enable for only logged in customers</label>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </for_logged_in>
+                    </fields>
+                </general>
+            </groups>
+        </brosolproductsautoadd>
+    </sections>
+</config>

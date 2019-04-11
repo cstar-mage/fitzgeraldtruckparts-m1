@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <ecomwisecredit translate="title" module="ecomwisecredit">
+            <title>Credit Limit</title>
+            <sort_order>80</sort_order>
+            <children>
+                <limits translate="title" module="ecomwisecredit">
+                    <title>Limits</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/credit_rules</action>
+                </limits>
+            </children>
+        </ecomwisecredit>
+    </menu>
+    <acl>
+        <resources>
+            <admin>  
+                <children>
+                    <ecomwisecredit module="ecomwisecredit" translate="title">
+                        <title>Credit Limit</title>
+                        <sort_order>80</sort_order>
+                        <children>
+                            <limits translate="title">
+                                <title>Limits</title>
+                                <sort_order>1</sort_order>
+                            </limits>
+                        </children>
+                    </ecomwisecredit>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config> 

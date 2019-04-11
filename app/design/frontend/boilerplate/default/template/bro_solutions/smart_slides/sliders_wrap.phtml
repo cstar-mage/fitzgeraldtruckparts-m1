@@ -1,0 +1,36 @@
+<div class="container truck-section">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 padding-left">
+        <?php echo $this->getLayout()->createBlock('smartslides/slides')->setSliderGroupId(1)->toHtml(); ?>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-none "><span class="img-callout">
+        <?php echo $this->getLayout()->createBlock('smartslides/slides')->setSliderGroupId(2)->toHtml(); ?>
+        <div class="truck-desc">
+            <div class="tittle">ATX Wheels</div>
+            <p></p>
+            <a class="btn btn-primary" href="/wheels-tires/atx-wheels.html"> Shop now </a></div>
+        <div class=" col-xs-12 padding-none create-account-section"><a href="http://www.fitzgeraldtruckparts.com/catalog/category/view/s/gme-build-accessories/id/174/">
+                <?php echo $this->getLayout()->createBlock('smartslides/slides')->setSliderGroupId(3)->toHtml(); ?>
+            </a>
+            <div class="create_account" title="Create Your Account"></div>
+            <div class=" col-xs-12 padding-none create-account-section">
+                <?php echo $this->getLayout()->createBlock('smartslides/slides')->setSliderGroupId(4)->toHtml(); ?>
+                <div class="create_account" title="Create Your Account">
+                    <div class="truck-desc">
+                        <div class="tittle">Create your account</div>
+                        <div class="widget widget-static-block"><form action="https://www.fitzgeraldtruckparts.com/customer/account/create/" class="form-inline" id="create-account-form" method="post">
+                                <div class="form-group"><input class="form-control  input-text required-entry" id="firstname" name="firstname" type="text" /></div>
+                                <button class="btn btn-primary active" onclick="createAccount(createAccountForm)" type="submit" data-toggle="button"> get started </button></form></div>
+                    </div>
+                </div>
+                <script type="text/javascript">// <![CDATA[
+                    var createAccountForm= new VarienForm('create-account-form');
+                    function createAccount(createAccountForm) {
+                        if (createAccountForm.validator.validate()) {
+                            createAccountForm.submit();
+                        }
+                    }
+                    // ]]></script>
+            </div>
+        </div>
+    </div>
+</div>
